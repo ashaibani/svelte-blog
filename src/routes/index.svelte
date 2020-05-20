@@ -21,9 +21,6 @@
     initClientParse();
     if (process.browser) {
       currentUser = Parse.User.current();
-      if (!currentUser) {
-        goto("/login");
-      }
     }
     update();
     loaded = true;

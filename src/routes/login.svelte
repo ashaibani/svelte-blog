@@ -5,13 +5,14 @@
   import Parse from "parse/dist/parse";
 
   let loaded = false;
+  var currentUser
   let username;
   let password;
 
   onMount(async () => {
     initClientParse();
     if (process.browser) {
-      var currentUser = Parse.User.current();
+      currentUser = Parse.User.current();
       if (currentUser) {
         goto("/");
       }
@@ -33,7 +34,7 @@
       goto("/");
     } catch (error) {
       // Show the error message somewhere and let the user try again.
-      alert("Error: " + error.code + " " + error.message);
+      console.log("Error: " + error.code + " " + error.message);
     }
   }
 </script>
