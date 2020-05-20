@@ -9,8 +9,8 @@
     {@html article.content}
   </p>
   <p>
-    <label for="mn-back" class="margin-toggle">&#11621;</label>
-    <input type="checkbox" id="mn-back" class="margin-toggle" />
+    <label for="mn-back-{article.id}" class="margin-toggle">&#11621;</label>
+    <input type="checkbox" id="mn-back-{article.id}" class="margin-toggle" />
     <span class="marginnote">
       <a href="/">GO BACK...</a>
     </span>
