@@ -90,7 +90,7 @@ export default {
          alias(aliasconfig),
          commonjs(),
          customResolver,
-         replace({...replaceconfig, 'process.browser': false}),
+         replace({...replaceconfig, 'process.browser': true}),
          resolve({ dedupe: ['svelte'] }),
          svelte({
             dev,

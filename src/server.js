@@ -6,6 +6,7 @@ import { sanslash } from '@neuekit/utilities/src/middleware';
 
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
+require('dotenv').config()
 
 polka() // You can also use Express
    .use(sanslash)

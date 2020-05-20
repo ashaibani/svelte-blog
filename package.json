@@ -1,6 +1,6 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "blog",
+  "description": "A simple blog",
   "version": "0.0.1",
   "scripts": {
     "sapper": "sapper dev",
@@ -19,9 +19,14 @@
     "dev": "run-p 'sapper' 'watch:css'"
   },
   "dependencies": {
+    "bufferutil": "^4.0.1",
     "compression": "1.7.4",
+    "fetch": "^1.1.0",
+    "node-fetch": "^2.6.0",
+    "parse": "^2.13.0",
     "polka": "0.5.2",
-    "sirv": "0.4.2"
+    "sirv": "0.4.2",
+    "utf-8-validate": "^5.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
