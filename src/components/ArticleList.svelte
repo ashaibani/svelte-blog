@@ -18,8 +18,8 @@
       <p class="subtitle">{article.desc}</p>
       <p>{article.content}</p>
       <p>
-        <label for="mn-date" class="margin-toggle">&#11621;</label>
-        <input type="checkbox" id="mn-date" class="margin-toggle" />
+        <label for="mn-date-{article.id}" class="margin-toggle">&#11621;</label>
+        <input type="checkbox" id="mn-date-{article.id}" class="margin-toggle" />
         <span class="marginnote">{article.createdAt}</span>
         <a href="/read/{article.id}">Read more...</a>
       </p>
