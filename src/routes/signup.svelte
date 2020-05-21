@@ -2,11 +2,13 @@
   import { goto } from "@sapper/app";
   import { onMount } from "svelte";
   import Button from "~/components/Button.svelte";
+  import UserNav from "~/components/UserNav.svelte";
   import Parse from "parse/dist/parse";
   let loaded = false;
 
   let username;
   let password;
+  let isLoggedIn;
 
   onMount(async () => {
     initClientParse();
@@ -43,13 +45,22 @@
 </script>
 
 <article>
+  <UserNav {isLoggedIn} />
   {#if loaded}
+    <h1>SIGN UP</h1>
     <section>
-      <input type="text" bind:value={username} placeholder="Username" />
-      <br />
-      <input type="password" bind:value={password} placeholder="Password" />
-      <br />
-      <Button on:click={signup}>Sign Up</Button>
+      <p>
+        <input type="text" bind:value={username} placeholder="Username" />
+      </p>
+
+      <p>
+        <input type="password" bind:value={password} placeholder="Password" />
+      </p>
+
+      <p>
+        <Button on:click={signup}>Sign Up</Button>
+      </p>
+
     </section>
   {:else}LOADING{/if}
 </article>
