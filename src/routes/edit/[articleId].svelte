@@ -120,6 +120,9 @@
     });
   }
 </script>
+<svelte:head>
+   <title>BLOG</title>
+</svelte:head>
 
 <article>
   <section>

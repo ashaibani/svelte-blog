@@ -18,9 +18,24 @@
       </h2>
       <p class="subtitle">
         {article.desc}
+        <label for="mn-date-{article.id}" class="margin-toggle">&#11621;</label>
+        <input
+          type="checkbox"
+          id="mn-date-{article.id}"
+          class="margin-toggle"
+          checked />
+        <span class="marginnote">
+          <small>{article.createdAt}</small>
+        </span>
+      </p>
+      <p>
+        {@html article.content.substr(0, 300)}
+      </p>
+
+      <p>
         {#if isLoggedIn}
           <label for="mn-edit-{article.id}" class="margin-toggle">
-             &#11570;
+            &#11570;
           </label>
           <input
             type="checkbox"
@@ -30,20 +45,6 @@
             <a href="edit/{article.id}">EDIT</a>
           </span>
         {/if}
-      </p>
-      <p>
-        {@html article.content.substr(0, 300)}
-      </p>
-
-      <p>
-        <label for="mn-date-{article.id}" class="margin-toggle">&#11621;</label>
-        <input
-          type="checkbox"
-          id="mn-date-{article.id}"
-          class="margin-toggle" checked/>
-        <span class="marginnote">
-          <small>{article.createdAt}</small>
-        </span>
         <a href="/read/{article.id}">READ MORE</a>
       </p>
     </section>

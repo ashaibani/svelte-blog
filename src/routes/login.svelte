@@ -3,11 +3,13 @@
   import { onMount } from "svelte";
   import Button from "~/components/Button.svelte";
   import Parse from "parse/dist/parse";
+  import UserNav from "~/components/UserNav.svelte";
 
   let loaded = false;
-  var currentUser
+  var currentUser;
   let username;
   let password;
+  let isLoggedIn = false;
 
   onMount(async () => {
     initClientParse();
@@ -39,12 +41,29 @@
   }
 </script>
 
+<svelte:head>
+  <title>LOGIN - BLOG</title>
+</svelte:head>
 <article>
+  <UserNav {isLoggedIn} />
+  <h1>LOGIN</h1>
   <section>
-    <input type="text" bind:value={username} placeholder="Username" />
-    <br />
-    <input type="password" bind:value={password} placeholder="Password" />
-    <br />
-    <Button on:click={login}>Login</Button>
+    <p>
+      <input
+        type="text"
+        bind:value={username}
+        placeholder="Username"
+        style="width:40%;" />
+    </p>
+    <p>
+      <input
+        type="password"
+        bind:value={password}
+        placeholder="Password"
+        style="width:40%;" />
+    </p>
+    <p>
+      <Button on:click={login}>Login</Button>
+    </p>
   </section>
 </article>

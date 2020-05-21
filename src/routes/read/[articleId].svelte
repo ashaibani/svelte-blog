@@ -85,7 +85,9 @@
     );
   }
 </script>
-
+<svelte:head>
+   <title>BLOG</title>
+</svelte:head>
 <article>
   <UserNav {isLoggedIn} />
   {#if loaded}

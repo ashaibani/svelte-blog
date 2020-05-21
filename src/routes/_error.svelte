@@ -1,40 +1,45 @@
 <script>
-   export let status;
-   export let error;
+  import UserNav from "~/components/UserNav.svelte";
+  import { onMount } from "svelte";
+  import Parse from "parse/dist/parse";
 
-   const dev = process.env.NODE_ENV === 'development';
+  export let status;
+  export let error;
+  let isLoggedIn = false;
+  var currentUser;
+  let loaded = false;
+
+  onMount(async () => {
+    initClientParse();
+    if (process.browser) {
+      currentUser = Parse.User.current();
+      if (currentUser) {
+        isLoggedIn = true;
+      }
+    }
+    loaded = true;
+  });
+
+  function initClientParse() {
+    Parse.serverURL = "https://api.m-a.me/parse";
+    Parse.initialize("XWRqEdUNs6uVxo8xUk7j4Z3pCZ4ozbqw");
+  }
+
+  const dev = process.env.NODE_ENV === "development";
 </script>
 
-<style>
-   h1, p {
-      margin: 0 auto;
-   }
-
-   h1 {
-      font-size: 2.8em;
-      font-weight: 700;
-      margin: 0 0 0.5em 0;
-   }
-
-   p {
-      margin: 1em auto;
-   }
-
-   @media (min-width: 480px) {
-      h1 {
-         font-size: 4em;
-      }
-   }
-</style>
-
 <svelte:head>
-   <title>{status}</title>
+  <title>{status}</title>
 </svelte:head>
+<article>
+  <UserNav {isLoggedIn} />
+  <h1>{status}</h1>
 
-<h1>{status}</h1>
+  <section>
+    <p>{error.message}</p>
 
-<p>{error.message}</p>
-
-{#if dev && error.stack}
-   <pre>{error.stack}</pre>
-{/if}
+    {#if dev && error.stack}
+      <pre>{error.stack}</pre>
+    {/if}
+  </section>
+</article>

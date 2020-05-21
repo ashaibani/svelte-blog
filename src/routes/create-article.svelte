@@ -60,7 +60,9 @@
     await updateArticle();
   }
 </script>
-
+<svelte:head>
+   <title>CREATE ARTICLE - BLOG</title>
+</svelte:head>
 <article>
   <section>
   <UserNav {isLoggedIn} />
