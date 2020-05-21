@@ -39,9 +39,11 @@
     font-display: swap;
 }
 
+
 /* Tufte CSS styles */
+
 html {
-    font-size: 15px; 
+    font-size: 15px;
 }
 
 body {
@@ -53,7 +55,7 @@ body {
     background-color: #fffff8;
     color: #111;
     max-width: 1400px;
-    counter-reset: sidenote-counter; 
+    counter-reset: sidenote-counter;
 }
 
 h1 {
@@ -61,7 +63,7 @@ h1 {
     margin-top: 4rem;
     margin-bottom: 1.5rem;
     font-size: 3.2rem;
-    line-height: 1; 
+    line-height: 1;
 }
 
 h2 {
@@ -70,7 +72,7 @@ h2 {
     margin-top: 2.1rem;
     margin-bottom: 1.4rem;
     font-size: 2.2rem;
-    line-height: 1; 
+    line-height: 1;
 }
 
 h3 {
@@ -79,7 +81,7 @@ h3 {
     font-size: 1.7rem;
     margin-top: 2rem;
     margin-bottom: 1.4rem;
-    line-height: 1; 
+    line-height: 1;
 }
 
 hr {
@@ -89,103 +91,109 @@ hr {
     border: 0;
     border-top: 1px solid #ccc;
     margin: 1em 0;
-    padding: 0; 
+    padding: 0;
 }
 
 p.subtitle {
     font-style: italic;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     display: block;
-    line-height: 1; 
+    line-height: 1;
 }
 
 .numeral {
-    font-family: et-book-roman-old-style; 
+    font-family: et-book-roman-old-style;
 }
 
 .danger {
-    color: red; 
+    color: red;
 }
 
 article {
-    padding: 5rem 0rem; 
+    padding: 5rem 0rem;
 }
 
 section {
     padding-top: 1rem;
-    padding-bottom: 1rem; 
+    padding-bottom: 1rem;
 }
 
 p,
 ol,
 ul {
     font-size: 1.4rem;
-    line-height: 2rem; 
+    line-height: 2rem;
 }
 
 p {
     margin-top: 1.4rem;
     margin-bottom: 1.4rem;
     padding-right: 0;
-    vertical-align: baseline; 
+    vertical-align: baseline;
 }
+
 
 /* Chapter Epigraphs */
+
 div.epigraph {
-    margin: 5em 0; 
+    margin: 5em 0;
 }
 
-div.epigraph > blockquote {
+div.epigraph>blockquote {
     margin-top: 3em;
-    margin-bottom: 3em; 
+    margin-bottom: 3em;
 }
 
-div.epigraph > blockquote,
-div.epigraph > blockquote > p {
-    font-style: italic; 
+div.epigraph>blockquote,
+div.epigraph>blockquote>p {
+    font-style: italic;
 }
 
-div.epigraph > blockquote > footer {
-    font-style: normal; 
+div.epigraph>blockquote>footer {
+    font-style: normal;
 }
 
-div.epigraph > blockquote > footer > cite {
-    font-style: italic; 
+div.epigraph>blockquote>footer>cite {
+    font-style: italic;
 }
+
+
 /* end chapter epigraphs styles */
 
 blockquote {
-    font-size: 1.4rem; 
+    font-size: 1.4rem;
 }
 
 blockquote p {
     width: 55%;
-    margin-right: 40px; 
+    margin-right: 40px;
 }
 
 blockquote footer {
     width: 55%;
     font-size: 1.1rem;
-    text-align: right; 
+    text-align: right;
 }
 
-section > p,
-section > footer,
-section > table {
-    width: 55%; 
+section>p,
+section>footer,
+section>table {
+    width: 55%;
 }
+
 
 /* 50 + 5 == 55, to be the same width as paragraph */
-section > ol,
-section > ul {
+
+section>ol,
+section>ul {
     width: 50%;
-    -webkit-padding-start: 5%; 
+    -webkit-padding-start: 5%;
 }
 
 li:not(:first-child) {
-    margin-top: 0.25rem; 
+    margin-top: 0.25rem;
 }
 
 figure {
@@ -197,7 +205,7 @@ figure {
     max-width: 55%;
     -webkit-margin-start: 0;
     -webkit-margin-end: 0;
-    margin: 0 0 3em 0; 
+    margin: 0 0 3em 0;
 }
 
 figcaption {
@@ -209,17 +217,19 @@ figcaption {
     line-height: 1.6;
     vertical-align: baseline;
     position: relative;
-    max-width: 40%; 
+    max-width: 40%;
 }
 
 figure.fullwidth figcaption {
-    margin-right: 24%; 
+    margin-right: 24%;
 }
 
+
 /* Links: replicate underline that clears descenders */
+
 a:link,
 a:visited {
-    color: inherit; 
+    color: inherit;
 }
 
 .no-tufte-underline:link {
@@ -227,7 +237,9 @@ a:visited {
     text-shadow: unset;
 }
 
-a:link, .tufte-underline, .hover-tufte-underline:hover {
+a:link,
+.tufte-underline,
+.hover-tufte-underline:hover {
     text-decoration: none;
     background: -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(currentColor, currentColor);
     background: linear-gradient(#fffff8, #fffff8), linear-gradient(#fffff8, #fffff8), linear-gradient(currentColor, currentColor);
@@ -236,11 +248,13 @@ a:link, .tufte-underline, .hover-tufte-underline:hover {
     background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
     background-repeat: no-repeat, no-repeat, repeat-x;
     text-shadow: 0.03em 0 #fffff8, -0.03em 0 #fffff8, 0 0.03em #fffff8, 0 -0.03em #fffff8, 0.06em 0 #fffff8, -0.06em 0 #fffff8, 0.09em 0 #fffff8, -0.09em 0 #fffff8, 0.12em 0 #fffff8, -0.12em 0 #fffff8, 0.15em 0 #fffff8, -0.15em 0 #fffff8;
-    background-position: 0% 93%, 100% 93%, 0% 93%; 
+    background-position: 0% 93%, 100% 93%, 0% 93%;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-    a:link, .tufte-underline, .hover-tufte-underline:hover {
+    a:link,
+    .tufte-underline,
+    .hover-tufte-underline:hover {
         background-position-y: 87%, 87%, 87%;
     }
 }
@@ -251,9 +265,11 @@ a:link::-moz-selection {
     background: #b4d5fe;
 }
 
+
 /* Sidenotes, margin notes, figures, captions */
+
 img {
-    max-width: 100%; 
+    max-width: 100%;
 }
 
 .sidenote,
@@ -267,78 +283,80 @@ img {
     font-size: 1.1rem;
     line-height: 1.3;
     vertical-align: baseline;
-    position: relative; 
+    position: relative;
 }
 
 .sidenote-number {
-    counter-increment: sidenote-counter; 
+    counter-increment: sidenote-counter;
 }
 
 .sidenote-number:after,
 .sidenote:before {
     font-family: et-book-roman-old-style;
     position: relative;
-    vertical-align: baseline; 
+    vertical-align: baseline;
 }
 
 .sidenote-number:after {
     content: counter(sidenote-counter);
     font-size: 1rem;
     top: -0.5rem;
-    left: 0.1rem; 
+    left: 0.1rem;
 }
 
 .sidenote:before {
     content: counter(sidenote-counter) " ";
     font-size: 1rem;
-    top: -0.5rem; 
+    top: -0.5rem;
 }
 
 blockquote .sidenote,
 blockquote .marginnote {
     margin-right: -82%;
     min-width: 59%;
-    text-align: left; 
+    text-align: left;
 }
 
 div.fullwidth,
 table.fullwidth {
-    width: 100%; 
+    width: 100%;
 }
 
 div.table-wrapper {
     overflow-x: auto;
-    font-family: "Trebuchet MS", "Gill Sans", "Gill Sans MT", sans-serif; 
+    font-family: "Trebuchet MS", "Gill Sans", "Gill Sans MT", sans-serif;
 }
 
 .sans {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: .03em; 
+    letter-spacing: .03em;
 }
 
-code, pre > code {
+code,
+pre>code {
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
     font-size: 1.0rem;
     line-height: 1.42;
-    -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. See https://github.com/edwardtufte/tufte-css/issues/81#issuecomment-261953409 */
+    -webkit-text-size-adjust: 100%;
+    /* Prevent adjustments of font size after orientation changes in iOS. See https://github.com/edwardtufte/tufte-css/issues/81#issuecomment-261953409 */
 }
 
-.sans > code {
-    font-size: 1.2rem; 
+.sans>code {
+    font-size: 1.2rem;
 }
 
-h1 > code,
-h2 > code,
-h3 > code {
-    font-size: 0.80em; 
+h1>code,
+h2>code,
+h3>code {
+    font-size: 0.80em;
 }
 
-.marginnote > code,
-.sidenote > code {
-    font-size: 1rem; 
+.marginnote>code,
+.sidenote>code {
+    font-size: 1rem;
 }
 
-pre > code {
+pre>code {
     font-size: 0.9rem;
     width: 52.5%;
     margin-left: 2.5%;
@@ -346,37 +364,38 @@ pre > code {
     display: block;
 }
 
-pre.fullwidth > code {
-    width: 90%; 
+pre.fullwidth>code {
+    width: 90%;
 }
 
 .fullwidth {
     max-width: 90%;
-    clear:both; 
+    clear: both;
 }
 
 span.newthought {
     font-variant: small-caps;
-    font-size: 1.2em; 
+    font-size: 1.2em;
 }
 
 input.margin-toggle {
-    display: none; 
+    display: none;
 }
 
 label.sidenote-number {
-    display: inline; 
+    display: inline;
 }
 
 label.margin-toggle:not(.sidenote-number) {
-    display: none; 
+    display: none;
 }
 
 .iframe-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 56.25%;
+    /* 16:9 */
     padding-top: 25px;
-    height: 0; 
+    height: 0;
 }
 
 .iframe-wrapper iframe {
@@ -384,66 +403,55 @@ label.margin-toggle:not(.sidenote-number) {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; 
+    height: 100%;
 }
 
 @media (max-width: 760px) {
     body {
         width: 84%;
         padding-left: 8%;
-        padding-right: 8%; 
+        padding-right: 8%;
     }
-    
     hr,
-    section > p,
-    section > footer,
-    section > table {
-        width: 100%; 
+    section>p,
+    section>footer,
+    section>table {
+        width: 100%;
     }
-    
-    pre > code {
-        width: 97%; 
+    pre>code {
+        width: 97%;
     }
-
-    section > ol {
-        width: 90%; 
+    section>ol {
+        width: 90%;
     }
-
-    section > ul {
-        width: 90%; 
+    section>ul {
+        width: 90%;
     }
-
     figure {
-        max-width: 90%; 
+        max-width: 90%;
     }
-    
     figcaption,
     figure.fullwidth figcaption {
         margin-right: 0%;
-        max-width: none; 
+        max-width: none;
     }
-    
     blockquote {
         margin-left: 1.5em;
-        margin-right: 0em; 
+        margin-right: 0em;
     }
-
     blockquote p,
     blockquote footer {
-        width: 100%; 
+        width: 100%;
     }
-    
     label.margin-toggle:not(.sidenote-number) {
-        display: inline; 
+        display: inline;
     }
-
     .sidenote,
     .marginnote {
-        display: none; 
+        display: none;
     }
-    
-    .margin-toggle:checked + .sidenote,
-    .margin-toggle:checked + .marginnote {
+    .margin-toggle:checked+.sidenote,
+    .margin-toggle:checked+.marginnote {
         display: block;
         float: left;
         left: 1rem;
@@ -451,28 +459,28 @@ label.margin-toggle:not(.sidenote-number) {
         width: 95%;
         margin: 1rem 2.5%;
         vertical-align: baseline;
-        position: relative; 
+        position: relative;
     }
-
     label {
-        cursor: pointer; 
+        cursor: pointer;
     }
-
     div.table-wrapper,
     table {
-        width: 85%; 
+        width: 85%;
     }
-    
     img {
         width: 100%;
-    } 
+    }
+    .editArea {
+        width: 100%;
+    }
 }
 
 .title {
     font-weight: 400;
     margin-top: 4rem;
     font-size: 3.2rem;
-    line-height: 1; 
+    line-height: 1;
 }
 
 .title-domain {
@@ -480,5 +488,15 @@ label.margin-toggle:not(.sidenote-number) {
     margin-bottom: 1rem;
     font-size: 1.8rem;
     display: block;
-    line-height: 1; 
+    line-height: 1;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.editArea {
+    width: 60%;
 }

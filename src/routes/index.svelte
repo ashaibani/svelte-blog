@@ -16,11 +16,14 @@
   let articles = [];
   let loaded = false;
   var currentUser;
-
+  let isLoggedIn = false;
   onMount(async () => {
     initClientParse();
     if (process.browser) {
       currentUser = Parse.User.current();
+      if (currentUser) {
+        isLoggedIn = true;
+      }
     }
     update();
     loaded = true;
@@ -31,61 +34,8 @@
     Parse.initialize("XWRqEdUNs6uVxo8xUk7j4Z3pCZ4ozbqw");
   }
 
-  async function saveArticle(title, shortDescription, content) {
-    const Article = Parse.Object.extend("Article");
-    const article = new Article();
-    article.set("title", title);
-    article.set("shortDescription", shortDescription);
-    article.set("content", content);
-
-    article.save().then(
-      article => {
-        // Execute any logic that should take place after the object is saved.
-        // console.log("New object created with objectId: " + article.id);
-      },
-      error => {
-        // Execute any logic that should take place if the save fails.
-        // error is a Parse.Error with an error code and message.
-        console.log(
-          "Failed to create new object, with error code: " + error.message
-        );
-      }
-    );
-  }
-
   async function update() {
     articles = await getArticles();
-  }
-
-  async function create() {
-    saveArticle("Another Example", "Some other example", "ASDasdqwdsa").then(
-      () => {
-        update();
-      }
-    );
-  }
-
-  async function wipe() {
-    const Article = Parse.Object.extend("Article");
-    const query = new Parse.Query(Article);
-    articles = [];
-    const results = await query.find();
-    // Do something with the returned Parse.Object values
-    for (let i = 0; i < results.length; i++) {
-      var object = results[i];
-      object.destroy().then(
-        object => {
-          // console.log(
-          //   "removing object " + object.id + " - " + object.get("title")
-          // );
-        },
-        error => {
-          // console.log(
-          //   "failed to remove object " + object.id + " - " + object.get("title")
-          // );
-        }
-      );
-    }
   }
 
   async function getArticles() {
@@ -128,11 +78,8 @@
 </style>
 
 <article>
-
+  <UserNav {isLoggedIn} />
   {#if loaded}
-    {#if currentUser}
-      <UserNav />
-    {/if}
     <span class="title">
       BLOG
       <span
@@ -144,7 +91,7 @@
         m-a.me
       </span>
     </span>
-    <ArticleList {articles} />
+    <ArticleList {articles} {isLoggedIn} />
     <Footer />
   {:else}
     <div>LOADING</div>
