@@ -4,7 +4,6 @@
   import Button from "~/components/Button.svelte";
   import Parse from "parse/dist/parse";
   import UserNav from "~/components/UserNav.svelte";
-  import { getNotificationsContext } from "svelte-notifications";
 
   let notify;
 
