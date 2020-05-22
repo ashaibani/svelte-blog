@@ -43,7 +43,8 @@
     article.set("title", title);
     article.set("shortDescription", shortDescription);
     article.set("content", editor.getHtml(true));
-
+    article.set(new Parse.ACL(currentUser));
+    
     article.save().then(
       article => {
         notifier.success("Successfully created article!");

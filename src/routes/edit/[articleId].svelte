@@ -82,6 +82,7 @@
     article.set("title", title);
     article.set("shortDescription", shortDescription);
     article.set("content", content);
+    
 
     article.save().then(
       article => {
