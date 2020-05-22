@@ -4,6 +4,7 @@
   import Button from "~/components/Button.svelte";
   import Parse from "parse/dist/parse";
   import UserNav from "~/components/UserNav.svelte";
+  import * as notifier from "@beyonk/svelte-notifications/src/notifier";
 
   let notify;
 
@@ -21,14 +22,8 @@
         goto("/");
       }
     }
-    getContext();
     loaded = true;
   });
-
-  async function getContext() {
-    const { addNotification } = getNotificationsContext();
-    notify = addNotification;
-  }
 
   function initClientParse() {
     Parse.serverURL = "https://api.m-a.me/parse";
@@ -44,15 +39,11 @@
     }
     try {
       currentUser = await Parse.User.logIn(username, password);
+      notifier.success("Thank you for logging in!")
       goto("/");
     } catch (error) {
       // Show the error message somewhere and let the user try again.
-      addNotification({
-        text: error.message,
-        type: "danger",
-        position: "top-center"
-      });
-      console.log("Error: " + error.code + " " + error.message);
+      notifier.danger(error.message)
     }
   }
 </script>

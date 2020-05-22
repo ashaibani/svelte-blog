@@ -13,6 +13,7 @@
   import Footer from "~/components/Footer.svelte";
   import UserNav from "~/components/UserNav.svelte";
   import Parse from "parse/dist/parse";
+  import * as notifier from "@beyonk/svelte-notifications/src/notifier";
 
   const { page } = stores();
   const { articleId } = $page.params;
@@ -73,20 +74,22 @@
   function handleRemove(event) {
     articleObject.destroy().then(
       myObject => {
+        notifier.success("Successfully removed article!");
         goto("/");
       },
       error => {
         // The delete failed.
         // error is a Parse.Error with an error code and message.
-        console.log(
-          "Failed to remove object, with error code: " + error.message
+        notifier.danger(
+          "Failed to remove article, with error code: " + error.message
         );
       }
     );
   }
 </script>
+
 <svelte:head>
-   <title>BLOG</title>
+  <title>BLOG</title>
 </svelte:head>
 <article>
   <UserNav {isLoggedIn} />

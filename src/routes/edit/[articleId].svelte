@@ -7,6 +7,7 @@
   import UserNav from "~/components/UserNav.svelte";
   import Parse from "parse/dist/parse";
   import Editor from "cl-editor/dist/index.js";
+  import * as notifier from "@beyonk/svelte-notifications/src/notifier";
 
   const { page } = stores();
   const { articleId } = $page.params;
@@ -84,12 +85,11 @@
 
     article.save().then(
       article => {
-        // Execute any logic that should take place after the object is saved.
-        console.log("New object updated with objectId: " + article.id);
+        notifier.success("Successfully saved article!");
       },
       error => {
-        console.log(
-          "Failed to update object, with error code: " + error.message
+        notifier.danger(
+          "Failed to update article, with error code: " + error.message
         );
       }
     );
@@ -98,13 +98,12 @@
   async function remove() {
     articleObject.destroy().then(
       myObject => {
+        notifier.success("Successfully removed article!");
         goto("/");
       },
       error => {
-        // The delete failed.
-        // error is a Parse.Error with an error code and message.
-        console.log(
-          "Failed to remove object, with error code: " + error.message
+        notifier.danger(
+          "Failed to remove article, with error code: " + error.message
         );
       }
     );
@@ -120,13 +119,14 @@
     });
   }
 </script>
+
 <svelte:head>
-   <title>BLOG</title>
+  <title>BLOG</title>
 </svelte:head>
 
 <article>
   <section>
-  <UserNav {isLoggedIn} />
+    <UserNav {isLoggedIn} />
     {#if loaded}
       <h1>Article Editor</h1>
       <p>

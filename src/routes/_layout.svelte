@@ -1,4 +1,5 @@
 <script>
+  import Notifications from "@beyonk/svelte-notifications/src/Notifications";
   export let segment;
 </script>
 
@@ -9,6 +10,8 @@
 <svelte:head>
   <meta name="version" content="pkg.version" />
 </svelte:head>
+
 <main>
+  <Notifications />
   <slot {segment} />
 </main>

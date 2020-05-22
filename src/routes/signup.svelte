@@ -4,6 +4,7 @@
   import Button from "~/components/Button.svelte";
   import UserNav from "~/components/UserNav.svelte";
   import Parse from "parse/dist/parse";
+  import * as notifier from "@beyonk/svelte-notifications/src/notifier";
   let loaded = false;
 
   let username;
@@ -36,10 +37,11 @@
     user.set("password", password);
     try {
       await user.signUp();
+      notifier.success("You've succeessfully signed up!")
       goto("/");
     } catch (error) {
       // Show the error message somewhere and let the user try again.
-      alert("Error: " + error.code + " " + error.message);
+      notifier.danger("Error: " + error.code + " " + error.message);
     }
   }
 </script>

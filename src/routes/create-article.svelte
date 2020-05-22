@@ -7,6 +7,7 @@
   import UserNav from "~/components/UserNav.svelte";
   import Parse from "parse/dist/parse";
   import Editor from "cl-editor/dist/index.js";
+  import * as notifier from "@beyonk/svelte-notifications/src/notifier";
 
   let loaded = false;
   let title, shortDescription, content;
@@ -22,7 +23,7 @@
       if (!currentUser) {
         goto("/");
       } else {
-        isLoggedIn = true
+        isLoggedIn = true;
       }
     }
     loaded = true;
@@ -45,12 +46,12 @@
 
     article.save().then(
       article => {
+        notifier.success("Successfully created article!");
         goto("read/" + article.id);
-        console.log("New object updated with objectId: " + article.id);
       },
       error => {
-        console.log(
-          "Failed to update object, with error code: " + error.message
+        notifier.danger(
+          "Failed to create article, with error code: " + error.message
         );
       }
     );
@@ -60,24 +61,20 @@
     await updateArticle();
   }
 </script>
+
 <svelte:head>
-   <title>CREATE ARTICLE - BLOG</title>
+  <title>CREATE ARTICLE - BLOG</title>
 </svelte:head>
 <article>
   <section>
-  <UserNav {isLoggedIn} />
+    <UserNav {isLoggedIn} />
     {#if loaded}
       <h1>Article Creator</h1>
       <p>
         Title:
         <input type="text" bind:value={title} />
-        <label for="mn-back-create" class="margin-toggle">
-          &#11621;
-        </label>
-        <input
-          type="checkbox"
-          id="mn-back-create"
-          class="margin-toggle" />
+        <label for="mn-back-create" class="margin-toggle">&#11621;</label>
+        <input type="checkbox" id="mn-back-create" class="margin-toggle" />
         <span class="marginnote">
           <a href="/">GO BACK</a>
         </span>
@@ -90,9 +87,7 @@
     <div bind:this={editArea} class="editArea" />
     {#if loaded}
       <p>
-        <label for="mn-save-create" class="margin-toggle">
-          &#11621;
-        </label>
+        <label for="mn-save-create" class="margin-toggle">&#11621;</label>
         <input
           type="checkbox"
           id="mn-save-create"
